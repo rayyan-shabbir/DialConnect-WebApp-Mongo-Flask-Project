@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+}
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 240px;
+    background-color: #080138;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Sidebar items */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-align: left;
+    transition: color 0.1s ease;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar a:hover {
+    color: #e60e0e;
+}
+
+.sidebar img {
+    width: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+/* Show text when sidebar is always expanded */
+.sidebar .sidebar-text {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.sidebar .logo-desc {
+    margin-left: 10px;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 80px;
+    margin-left: 2px;
+}
+
+/* Sidebar separator line */
+.sidebar a {
+    position: relative;
+    padding-bottom: 8px;
+    margin-top: -2px;
+}
+
+.sidebar a::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    background-color: white;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: calc(100% - 30px);
+}
+
+/* Main content area styling */
+.main-content {
+    margin-left: 220px; /* Width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 328px); /* Remaining width after the sidebar */
+    max-width: 95%;
+}
+
+
+
+/* Show Insurances */
+.header {
+    background-color: #434141; /* Black background for the header */
+    color: #ffffff;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    width: 103%;
+    max-height: 100%;
+    margin-top: -20px;
+    margin-left: 11px;
+}
+
+
+.container {
+    max-width: 95%;
+    margin: 0 auto;
+    margin-left: 140px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+    margin-left: 130px;
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 26px;
+    margin-left: 0; /* Adjusted to center */
+    text-align: center;
+    padding-top: 15px;
+
+}
+
+.info-bar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    align-items: center;
+    background-color: #fff;
+    color: black;
+}
+
+thead tr th{
+    background-color: rgb(215, 213, 213);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #8d8d8d;
+    border-right: 1px solid #8d8d8d;
+    border-left: 1px solid #8d8d8d;
+}
+
+th {
+    background-color: #f8f8f8;
+    color: black;
+    border-top: 1px solid #8d8d8d;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 40px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.button-container {
+    text-align: right;
+    width: 88%;
+    margin-top: 20px;
+    margin-left: 110px;
+
+}
+
+.close-button {
+    padding: 10px 20px;
+    background-color: #da0d0d;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #0b0242;
+}

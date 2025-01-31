@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/show_insurance.css') }}">
+    <script src="{{ url_for('static', filename='js/show_insurance.js') }}" defer></script>
+</head>
+
+
+<body>
+    {% if key == "admin" %}
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo" onclick="toggleSidebar()">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('admin_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('admin_graphs') }}">
+            <img src="{{ url_for('static', filename='Images/graph.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Graphs</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+    {% else %}
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('user_home') }}">
+            <img src="{{ url_for('static', filename='Images/home-icon.png') }}" alt="Home Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Home</span>
+        </a>
+        <a href="{{ url_for('user_connect') }}">
+            <img src="{{ url_for('static', filename='Images/form-icon.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Add Dial
+                Plan</span>
+        </a>
+        <a href="{{ url_for('user_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <div class="header">
+            <h1>View Information for <span style="color:red">{{ insurance_name }}</span></h1>
+        </div>
+        <div class="container">
+            <div class="info-bar">
+                <p>You can only view this Information.</p>
+            </div>
+            <hr>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Field Names</th>
+                        <th>Sentences</th>
+                        <th>Action</th>
+                        <th>Callback Feature</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for field, values in fields_data.items() %}
+                    <tr>
+                        <td><input type="text" value="{{ loop.index }}" readonly></td>
+                        <td><input type="text" value="{{ field }}" readonly></td>
+                        <td><input type="text" value="{{ values.sentence }}" readonly></td>
+                        <td><input type="text" value="{{ values.action }}" readonly></td>
+                        <td><input type="text" value="{{ values.callback }}" readonly></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="button-container">
+                {% if key == "admin" %}
+                <button class="close-button" onclick="goHomeAdmin()">Close</button>
+                {% else %}
+                <button class="close-button" onclick="goHomeUser()">Close</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

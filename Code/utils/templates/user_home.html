@@ -1,0 +1,43 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="main-content">
+        <div class="welcome-section">
+            <h1>Welcome <span style="color: #e60e0e;">{{ user_name }}</span></h1>
+            <p>Your personalized workspace is ready, tailored to keep your experience seamless and efficient. Everything
+                you need is right at your fingertips, designed to make your journey smooth and intuitive.</p>
+        </div>
+
+        <div class="team-contact-section">
+            <div>
+                <h2 class="profile-text">PROFILE</h2>
+                <div class="email-info">
+                    <h5>Email:</h5>
+                    <div class="info-box1">{{ user_email }}</div>
+                </div>
+                <div class="contact-info">
+                    <h5>Designation:</h5>
+                    <div class="info-box2">{{ designation }}</div>
+                </div>
+                <div class="team-info">
+                    <h5>Team/Organisation:</h5>
+                    <div class="info-box3" style="margin-left: 80px;">{{ team_name }}</div>
+                </div>
+            </div>
+
+            <!-- Right side content -->
+            <div class="right-side">
+                <div class="vertical-line"></div>
+                <div class="para-btn">
+                    <p class="right-paragraph">Add your details in the DialConnect Form right here and keep your
+                        information current and complete. It’s all at your fingertips!</p>
+                    <a href="{{ url_for('user_connect') }}">
+                        <button class="add-dial-plan-button">Add Dial Plan</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

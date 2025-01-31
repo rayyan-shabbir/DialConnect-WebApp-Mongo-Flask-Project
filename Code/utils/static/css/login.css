@@ -1,0 +1,258 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../Images/login-signup-bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: transparent !important;
+    /* Transparent background */
+    box-shadow: none;
+    /* Removes any shadow */
+    border: none !important;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+}
+
+h5 {
+    font-size: 20px;
+    color: white !important;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #e60e0e !important;
+    font-size: 1.1rem;
+    margin-right: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    font-weight: bold;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    height: 2px;
+    /* Line thickness */
+    background-color: #e60e0e;
+    /* Line color */
+    position: absolute;
+    left: 0;
+    margin-left: 30px;
+    bottom: -5px;
+    /* Adjust space between text and line */
+    width: 50%;
+    /* Line width matches text width */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 50px;
+}
+
+.container a {
+    color: white;
+    font-size: 16px;
+}
+
+.text-section {
+    color: white;
+    margin-top: 0px;
+}
+
+.text-section h1 {
+    font-size: 55px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.text-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* Adjust the color and thickness as needed */
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.text-section h2::after {
+    content: "";
+    position: absolute;
+    margin-bottom: 10px;
+    left: 0;
+    /* Start from the left edge of the h2 element */
+    bottom: 0;
+    /* Position at the bottom of the h2 element */
+    width: 10%;
+    /* Adjust the width of the line */
+    height: 3px;
+    /* Adjust thickness of the line */
+    background-color: white;
+    /* Adjust color of the line */
+}
+
+.text-section a {
+    font-size: 25px;
+    ;
+}
+
+.text-section p {
+    font-size: 30px;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #e60e0e;
+    font-weight: bolder;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000000;
+    /* Adjust the color as needed */
+    margin-bottom: 5px;
+    /* Space between label and input */
+    display: block;
+    margin-left: 6px;
+    /* Make sure the label is above the input */
+}
+
+.form-control {
+    margin-bottom: 15px;
+    border-radius: 20px;
+    height: 45px;
+    font-size: 12px;
+}
+
+.btn-login {
+    background-color: #e60e0e;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 50%;
+    color: white;
+    margin-left: 80px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.btn-login:hover {
+    background-color: #0b0242;
+    color: white;
+}
+
+.text-center a {
+    color: #ff4d4d;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+.nav-item a {
+    color: white;
+}
+
+
+
+/* Custom Alert Box Styling */
+.custom-alert {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2000;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.custom-alert.success {
+    background-color: #28a745;
+    /* Green background for success messages */
+}
+
+.custom-alert.error {
+    background-color: #dc3545;
+    /* Red background for error messages */
+}
+
+.custom-alert h3 {
+    margin-top: 0;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.custom-alert p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.custom-alert .close-btn {
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.custom-alert .close-btn:hover {
+    background-color: #c82333;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

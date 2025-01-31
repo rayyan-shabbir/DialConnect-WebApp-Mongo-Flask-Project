@@ -1,0 +1,493 @@
+/* General Styles */
+body {
+    font-family: 'Anton', sans-serif !important;
+    background-color: none;
+    margin-top: 0px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent !important;
+    /* Transparent background */
+    box-shadow: none;
+    /* Removes any shadow */
+    border: none !important;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.transparent {
+    background-color: transparent;
+}
+
+.navbar.solid {
+    background-color: rgb(3, 3, 3);
+    /* or your preferred color */
+}
+
+.navbar-brand {
+    margin-left: 20px;
+}
+
+h5 {
+    font-size: 20px;
+    color: white !important;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+.nav-link {
+    color: #fff !important;
+    font-size: 1.1rem;
+    margin-right: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.nav-link.active {
+    color: white !important;
+    /* Active link color */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add a red underline to the active link */
+/* Ensure that the nav-link has relative positioning */
+.nav-link {
+    position: relative;
+}
+
+/* Add a red underline to the active link */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    /* Position the line just below the text */
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* Adjust the width to cover the link */
+    height: 3px;
+    /* Height of the line */
+    background-color: #e60e0e;
+    /* Color of the underline */
+    transition: width 0.2s;
+    /* Smooth transition for the underline effect */
+}
+
+/* Optional: Adjust for hover effect */
+.nav-link:hover::after {
+    width: 100%;
+    /* Adjust the width to cover the link on hover */
+}
+
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 0.5%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+.btn-outline1 {
+    background-color: #e60e0e;
+    color: white;
+    border: none;
+    margin-right: 10px;
+    margin-left: 40px;
+    padding: 5px 28px;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-outline1:hover {
+    background-color: #fff;
+    color: #0b0242;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-outline2 {
+    background-color: #e60e0e;
+    color: white;
+    border: none;
+    margin-right: 30px;
+    margin-left: 20px;
+    border-radius: 40px;
+    padding: 5px 28px;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-outline2:hover {
+    background-color: #fff;
+    color: #0b0242;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    /* z-index: 1070; Keep navbar above other content */
+}
+
+
+/* Home Section */
+#home {
+    height: fit-content;
+    position: relative;
+    /* Full viewport height */
+    margin-top: 0px;
+}
+
+.carousel-item img {
+    height: 100vh;
+    /* Full viewport height */
+    padding-top: 0;
+    object-fit: cover;
+    /* Ensure the image covers the entire area */
+}
+
+.carousel-caption {
+    top: 270px;
+    left: 50px;
+    text-align: left;
+    font: bolder;
+}
+
+.carousel-caption h1 {
+    font-size: 86.3px;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-indicators {
+    bottom: 30px;
+    /* Adjust as needed */
+    z-index: 1000;
+}
+
+.carousel-indicators button {
+    background-color: white;
+    /* Change to your desired color */
+    width: 50px;
+    /* Adjust size as needed */
+    height: 50px;
+    /* Adjust size as needed */
+    padding: 20%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .active {
+    background-color: rgb(58, 57, 57);
+    /* Active indicator color */
+}
+
+
+/* About Us Section */
+#about-us {
+    background-image: url("../Images/bg.png");
+    height: 100vh;
+    color: #fff;
+    border-bottom: #C0C0C0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#about-us h2 {
+    font-size: 55.5px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: 80px;
+    text-align: left;
+}
+
+.card {
+    background-color: #b2b0b0;
+    border: none;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 40px;
+    /* padding: 10px; Added padding */
+    min-height: 300px;
+    padding-top: 30px;
+}
+
+.card-enlarge {
+    min-height: 400px;
+}
+
+.card-title {
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    color: #000000 !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-text {
+    margin-right: 55px;
+    margin-top: 15px;
+    /* Adjust the spacing between the <p> and <button> */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#about-us .btn-primary {
+    background-color: transparent;
+    border-color: #e60e0e;
+    border-width: 4px;
+    border-style: solid;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#about-us .btn-primary:hover {
+    background-color: #0b0242;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-content .modal-title {
+    color: #e60e0e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-header {
+    border-bottom: none;
+    color: #e60e0e;
+}
+
+.custom-close-btn {
+    font-size: 3.5rem;
+    /* Adjust size as needed */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e60e0e;
+    /* Red color */
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    /* Ensure the button is fully opaque */
+    position: absolute;
+    top: 10px;
+    /* Adjusts the position from the top edge */
+    right: 10px;
+    /* Adjusts the position from the right edge */
+    line-height: 1;
+}
+
+.custom-close-btn:hover {
+    color: #d50d0d;
+    /* Darker red on hover */
+}
+
+/* Add styles for the active-card class */
+
+.card-enlarge.active-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    /* Ensure title color is black */
+}
+
+
+/* Additional CSS to handle card enlargement and showing text */
+.card-enlarge {
+    transition: transform 0.3s, max-height 0.3s;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.card-enlarge.active-card {
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #b2b0b0;
+    color: #000;
+    transform: scale(1.1);
+    max-height: 500px;
+    /* Adjust this value according to the amount of text */
+}
+
+.card-enlarge .card-text {
+    display: none;
+    transition: opacity 0.3s;
+    opacity: 0;
+
+}
+
+.card-enlarge.active-card .card-text {
+    display: block;
+    opacity: 1;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    color: #000000 !important;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.btn-learn-more {
+    background-color: #007bff;
+    /* Primary background color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Smooth transition */
+}
+
+.info-container {
+    padding-top: 30px;
+}
+
+.btn-learn-more:hover {
+    background-color: #0056b3;
+    /* Darker background color on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+}
+
+.btn-learn-more:focus,
+.btn-learn-more:active {
+    box-shadow: none;
+    /* Remove focus/active box-shadow */
+}
+
+
+
+
+/* FAQ Section Styles */
+#faqs {
+    padding: 60px 0;
+    background-image: url(../Images/bg.png);
+    height: 130vh;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#faqs h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 76.3px;
+    margin-bottom: 5px;
+    margin-top: 80px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+    margin-left: 0;
+    width: 850px;
+    padding-left: 0;
+}
+
+#faqs p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.accordion-button {
+    background-color: rgba(11, 2, 66, 0.8);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(11, 2, 66, 0.8);
+    color: #fff;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-item {
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 2px;
+}
+
+.accordion-body {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: rgba(11, 2, 66, 0.8);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.accordion-button::after {
+    filter: invert(1);
+}
+
+.accordion-button.collapsed {
+    /* background-color: rgba(11, 2, 66, 0.8); */
+    color: #fff;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    #faqs h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Footer Section */
+footer {
+    background-color: #1e1e24;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 40px;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}

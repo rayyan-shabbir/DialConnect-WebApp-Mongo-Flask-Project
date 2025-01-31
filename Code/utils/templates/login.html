@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DialConnect - Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="../static/Images/logo.png" alt="DialConnect" style="height: 50px;">
+            </a>
+            <h5>DialConnect</h5>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Back to Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Left Text Section -->
+        <div class="text-section">
+            <h1>Login</h1>
+            <p style="font-size: 20px;">"Welcome Back!"</p>
+            <h2>Don't have an account? <a href="/signup" class="text-danger">Register now</a></h2>
+            <p>Access your account and manage <br>your tasks efficiently!</p>
+        </div>
+
+        <!-- Right Login Form Section -->
+        <div class="login-box">
+            <h2>LOGIN</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" class="form-control" name="email" placeholder="ENTER EMAIL" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" class="form-control" name="password" placeholder="ENTER PASSWORD" required>
+                </div>
+                <button type="submit" class="btn btn-login">LOGIN</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Flash Messages (hidden) -->
+    <script id="flash-messages" type="application/json">
+        {{ get_flashed_messages(with_categories=True) | tojson }}
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Alert Box Script -->
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+
+</html>

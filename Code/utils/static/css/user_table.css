@@ -1,0 +1,372 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Set the background color to white */
+    color: #000000; /* Default text color is black */
+    margin: 0;
+}
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 240px;
+    background-color: #080138;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Sidebar items */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-align: left;
+    transition: color 0.1s ease;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar a:hover {
+    color: #e60e0e;
+}
+
+.sidebar img {
+    width: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+/* Show text when sidebar is always expanded */
+.sidebar .sidebar-text {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.sidebar .logo-desc {
+    margin-left: 10px;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 80px;
+    margin-left: 2px;
+}
+
+/* Sidebar separator line */
+.sidebar a {
+    position: relative;
+    padding-bottom: 8px;
+    margin-top: -2px;
+}
+
+.sidebar a::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    background-color: white;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: calc(100% - 30px);
+}
+
+/* Main content area styling */
+.main-content {
+    margin-left: 220px; /* Width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 240px); /* Remaining width after the sidebar */
+}
+
+/* Specific styles for user_home.html content */
+.welcome-section h1 {
+    font-family: 'Anton', sans-serif !important;
+    font-size: 55px;
+    margin-left: 140px;
+    margin-top: 80px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: white;
+    border-bottom: solid 2px white;
+    width: max-content;
+    font-weight: bold;
+}
+
+.welcome-section p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-left: 150px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    color: white;
+    word-spacing: 12px;
+    text-align: justify;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.team-contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    margin-left: 150px;             
+    padding: 10px;
+    min-height: 250px;
+    background-color: rgb(0, 0, 0, 0.6); 
+    width: 87%;
+}
+
+.team-info, .contact-info, .email-info {
+    width: 100%;
+    display: flex;
+    color: white;
+    margin-left: 30px;
+    font-size: 5px;
+}
+
+.profile-text {
+    margin-bottom: 40px;
+    margin-left: 30px;
+    color: white;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.info-box1, .info-box2, .info-box3 {
+    color: white;
+    width: 250px;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    margin-top: -10px;
+
+}
+
+.info-box1 {
+    margin-left: 165px;
+}
+
+.info-box2 {
+    margin-left: 142px;
+}
+
+.info-box3 {
+    margin-left: 25px;
+}
+
+/* New CSS for the right side elements */
+.right-side {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-right: 50px; /* Adjust as needed */
+    color: white;
+    margin-left: 50px;
+}
+
+.vertical-line {
+    border-left: 2px solid rgb(255, 255, 255, 0.4);
+    height: 200px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.para-btn {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px; /* Adjust as needed */
+    color: white;
+    margin-top: 40px;
+}
+
+.right-paragraph {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.add-dial-plan-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #e60e0e;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    width: max-content;
+    margin-top: 35px;
+    margin-left: 200px;
+    align-items: center;
+    border: solid 3px #e60e0e;
+}
+
+.add-dial-plan-button:hover {
+    background-color: transparent; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    border: solid 3px white; /* Change border color on hover */
+}
+
+/* User table */
+.header {
+    background-color: #434141; /* Black background for the header */
+    color: #ffffff; /* White text color for the header */
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    width: 103%;
+    max-height: 100%;
+    margin-top: -20px;
+    margin-left: 1px;
+}
+
+.container {
+    max-width: 98%;
+    margin: 0 auto;
+    text-align: center; /* Center align the content */
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+    margin-left: 0; /* Adjusted to center */
+    text-align: center;
+    padding-top: 15px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-right: 0px;
+}
+
+.search-bar p {
+    width: 600px;
+}
+
+#search {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    margin-left: auto; /* Center the search bar */
+    margin-right: auto;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    align-items: center;
+    background-color: #fff;
+    color: black;
+    margin: 0 auto; /* Center the table */
+}
+
+table thead tr{
+    padding: 4px;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-left: 1px solid rgba(0, 0, 0, 0.5); /* 50% transparency */
+    border-right: 1px solid rgba(0, 0, 0, 0.5); /* 50% transparency */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5); /* 50% transparency */
+}
+
+th {
+    background-color: #f8f8f8;
+    color: black;
+    border-top: 1px solid rgba(0, 0, 0, 0.5); /* 50% transparency */
+    font-weight: bold;
+}
+th:nth-child(1), td:nth-child(1) {
+    text-align: center;
+}
+th:nth-child(3), td:nth-child(3), th:nth-child(4), td:nth-child(4), th:nth-child(5), td:nth-child(5) {
+    width: 20%; 
+    text-align: center;
+}
+
+tr {
+    height: 20px;
+}
+
+.btn {
+    padding: 5px 20px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.show-btn {
+    background-color: #088f28;
+}
+
+.edit-btn {
+    background-color: #13aac2;
+}
+
+.delete-btn {
+    background-color: #da0d0d;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    background-color: #a8a9aa;
+}
+
+#messageBox {
+    position: fixed;
+    top: 20px;
+    left: 650px;
+    background-color: white; 
+    color: rgb(49, 45, 45);
+    padding: 10px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+/* Custom Alert Box Styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}

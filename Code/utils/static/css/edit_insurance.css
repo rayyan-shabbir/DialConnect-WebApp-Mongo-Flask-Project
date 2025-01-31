@@ -1,0 +1,263 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+}
+
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 240px;
+    background-color: #080138;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Sidebar items */
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-align: left;
+    transition: color 0.1s ease;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.sidebar a:hover {
+    color: #e60e0e;
+}
+
+.sidebar img {
+    width: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+/* Show text when sidebar is always expanded */
+.sidebar .sidebar-text {
+    margin-left: 15px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.sidebar .logo-desc {
+    margin-left: 10px;
+    color: #f4f4f4;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 80px;
+    margin-left: 2px;
+}
+
+/* Sidebar separator line */
+.sidebar a {
+    position: relative;
+    padding-bottom: 8px;
+    margin-top: -2px;
+}
+
+.sidebar a::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    background-color: white;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: calc(100% - 30px);
+}
+
+/* Main content area styling */
+.main-content {
+    margin-left: 220px; /* Width of the sidebar */
+    padding: 20px;
+    width: calc(100% - 332px); /* Remaining width after the sidebar */
+    max-width: 95%;
+}
+
+/* Edit Insurances */
+.header {
+    background-color: #434141; /* Black background for the header */
+    color: #ffffff;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    width: 111%;
+    max-height: 91%;
+    margin-top: -20px;
+    margin-left: 1px;
+}
+
+.container {
+    max-width: 95%;
+    margin: 0 auto;
+    margin-left: 140px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+    margin-left: 130px;
+}
+
+.info-bar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -10px;
+    margin-left: 10px;
+    margin-top: 25px;
+}
+
+table {
+    width: 100%; /* Set table width to 100% */
+    border-collapse: collapse;
+    margin-top: 10px;
+    align-items: center;
+    background-color: #fff;
+    color: black;
+}
+
+thead tr th{
+    background-color: rgb(215, 213, 213);
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #8d8d8d;
+    border-right: 1px solid #8d8d8d;
+    border-left: 1px solid #8d8d8d;
+}
+
+th {
+    background-color: #f8f8f8;
+    color: black;
+    border-top: 1px solid #8d8d8d;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 60px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 200px; /* Adjust as needed */
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.button-container {
+    text-align: right;
+    width: 88%;
+    margin-top: 15px;
+    margin-left: 120px;
+}
+
+.save-button,
+.cancel-button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #da0d0d;
+    color: #ffffff;
+}
+
+.cancel-button:hover {
+    background-color: #0b0242;
+}
+
+.save-button {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.save-button:hover {
+    background-color: #0b0242;
+}
+
+.add-button-option {
+    text-align: right;
+    width: 88%;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+
+.add-button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.remove {
+    height: 55px;
+}
+
+
+.custom-alert {
+    position: fixed;
+    top: 100px;
+    right: 100px;
+    z-index: 9999;
+    padding: 35px 70px;
+    background-color: #06b12e;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 500px;
+    margin-right: 510px;
+}
+
+
+.btn-secondary:hover,
+.btn-danger:hover {
+    opacity: 0.6;
+}
+
+
+
+

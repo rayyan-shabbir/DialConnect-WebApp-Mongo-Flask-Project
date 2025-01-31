@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DialConnect</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/web_home.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="/static/Images/logo.png" alt="DialConnect" style="height: 50px;">
+            </a>
+            <h5>DialConnect</h5>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faqs">FAQs</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="/signup" class="btn btn-outline1">Signup</a>
+                    <a href="/login" class="btn btn-outline2">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/static/Images/image2.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/Images/image1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/Images/image3.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <div class="carousel-caption text-left">
+                <p>Welcome!</p>
+                <h1 id="typewriter">DIALCONNECT APP</h1>
+                <p>Streamline your insurance and patient data management effortlessly, <br>enhancing efficiency and
+                    accuracy..</p>
+            </div>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="py-5">
+        <div class="container">
+            <h2>WHO WE ARE?</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-enlarge text-center" id="missionCard">
+                        <img src="/static/Images/about2.png" class="card-img-top mx-auto d-block mt-3"
+                            alt="Mission Image" style="width: 50%;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:black;">OUR MISSION</h5>
+                            <p class="card-text">Our mission is to simplify and streamline the revenue cycle management
+                                process for healthcare providers, ensuring efficient and secure data handling.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-enlarge text-center" id="visionCard">
+                        <img src="/static/Images/about3.png" class="card-img-top mx-auto d-block mt-3"
+                            alt="Vision Image" style="width: 50%;">
+                        <div class="card-body">
+                            <h5 class="card-title">OUR VISION</h5>
+                            <p class="card-text">We envision a future where healthcare providers can focus on patient
+                                care, while our technology handles the complexities of data management.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-enlarge text-center" id="valuesCard">
+                        <img src="/static/Images/about1.png" class="card-img-top mx-auto d-block mt-3"
+                            alt="Values Image" style="width: 50%;">
+                        <div class="card-body">
+                            <h5 class="card-title">OUR VALUES</h5>
+                            <p class="card-text">We believe in building solutions that are not only innovative but also
+                                secure and dependable, ensuring the highest standards for our users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-container mt-4">
+                <p class="info-text">Get more information about us:</p>
+                <button class="btn btn-primary btn-learn-more" data-bs-toggle="modal"
+                    data-bs-target="#learnMoreModal">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Learn More Button -->
+    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnMoreModalLabel" style="color: #e60e0e;">MORE INFO:</h5>
+                    <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Our platform is designed to revolutionize the way you handle insurance and patient data management,
+                    ensuring seamless integration, accuracy, and efficiency in your daily operations. Here’s what you
+                    can expect:
+
+                    <br>
+                    - Automated Processes<br>
+                    - Data Security<br>
+                    - User-Friendly Interface<br>
+                    - Compliance Ready<br>
+                    - Customizable Solutions<br>
+                    - Real-Time Analytics<br>
+
+                    Experience a transformative approach to data management, where efficiency, security, and
+                    user-friendliness come together to enhance your business operations.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FAQ's -->
+    <section id="faqs" class="py-5 bg-light">
+        <div class="container">
+            <h1 class="text-faq mb-5">MOST FREQUENTLY ASKED QUESTIONS</h1>
+            <p>We are here to answer all your questions!</p>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                            What is this platform about?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our platform automates call management and data entry for insurance companies, helping
+                            streamline tasks and track interactions efficiently.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                            How do I create an account?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can create an account by clicking on the "Sign Up" button and filling out the
+                            registration form.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                            What browsers are supported?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our platform supports all major browsers including Chrome, Firefox, Safari, and Edge.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                            How is my personal information protected?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Your personal information is safeguarded through advanced encryption techniques and secure
+                            data storage, ensuring that only authorized personnel can access it. We also comply with
+                            strict privacy regulations to protect your data.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                            What is a "DialConnect" and how does it work?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            A Smart Dialer is an automated system that optimizes call management by predicting and
+                            dialing phone numbers, streamlining communication processes. It works by analyzing patterns
+                            and connecting calls to agents only when a live person answers, improving efficiency and
+                            reducing downtime.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeadingSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
+                            Can i customise the fields in data entry forms?
+                        </button>
+                    </h2>
+                    <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix"
+                        data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, you can customize the fields in data entry forms to fit your specific needs by adding,
+                            removing, or modifying fields as required. This flexibility allows you to tailor the forms
+                            to capture the most relevant information for your application.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class=" text-white py-4">
+        <div class="container text-center">
+            <p>Contact us: rcmpanel@curemd.com | +123 456 7890</p>
+            <p>&copy; 2024 DialConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/web_home.js') }}"></script>
+</body>
+
+</html>

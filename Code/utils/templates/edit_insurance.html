@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_insurance.css') }}">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    {% if key == "admin" %}
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo" onclick="toggleSidebar()">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('admin_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('admin_graphs') }}">
+            <img src="{{ url_for('static', filename='Images/graph.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Graphs</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+    {% else %}
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('user_home') }}">
+            <img src="{{ url_for('static', filename='Images/home-icon.png') }}" alt="Home Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Home</span>
+        </a>
+        <a href="{{ url_for('user_connect') }}">
+            <img src="{{ url_for('static', filename='Images/form-icon.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Add Dial
+                Plan</span>
+        </a>
+        <a href="{{ url_for('user_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+    {% endif %}
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Edit Information for <span style="color:red">{{ insurance_name }}</span></h1>
+        </div>
+        <div class="container">
+            <div class="info-bar">
+                <p>Edit your Information. Keep your Information up-to-date.</p>
+            </div>
+            <hr>
+            <form method="POST">
+                <table id="infoTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Sr.</th>
+                            <th>Field Names</th>
+                            <th>Sentences</th>
+                            <th>Action</th>
+                            <th>Callback Feature</th>
+                            <th></th> <!-- Add this header for remove buttons -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for field, values in fields_data.items() %}
+                        <tr>
+                            <td><input type="text" value="{{ loop.index }}" readonly></td>
+                            <td>
+                                <input type="text" name="field_{{ loop.index }}" value="{{ field }}" readonly>
+                            </td>
+                            <td><input type="text" name="sentence_{{ loop.index }}" value="{{ values.sentence }}"></td>
+                            {% if field in ["NPI", "Tax", "DOB", "DOS", "PolicyNum"] %}
+                            <td><input type="text" name="action_{{ loop.index }}" value="{{ values.action }}" readonly>
+                            </td>
+                            {% else %}
+                            <td><input type="text" name="action_{{ loop.index }}" value="{{ values.action }}"></td>
+                            {% endif %}
+                            <td>
+                                <select name="callback_{{ loop.index }}">
+                                    <option value="" disabled>Select Callback</option>
+                                    <option value="Audio" {% if values.callback=='Audio' %}selected{% endif %}>Audio
+                                    </option>
+                                    <option value="Keypad" {% if values.callback=='Keypad' %}selected{% endif %}>Keypad
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <!-- Remove button with Bootstrap styling -->
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="removeRow(this)">Remove</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="add-button-option"><button class="btn btn-primary" type="button" onclick="addRow()">+ Add
+                        more
+                        information</button></div>
+
+                <div class="button-container">
+                    <button type="submit" class="btn btn-success">Save</button>
+
+                    {% if key == "admin" %}
+                    <button type="button" class="btn btn-secondary" onclick="goHomeAdmin()">Close</button>
+                    {% else %}
+                    <button type="button" class="btn btn-secondary" onclick="goHomeUser()">Close</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/edit_insurance.js') }}"></script>
+
+</body>
+
+</html>

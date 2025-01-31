@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Distribution</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_table.css') }}">
+</head>
+
+<body style="background-color: rgb(252, 252, 252);">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo" onclick="toggleSidebar()">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('admin_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('admin_graphs') }}">
+            <img src="{{ url_for('static', filename='Images/graph.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Graphs
+                Visualization</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <div class="container mt-5">
+            <h1 class="text-center">Callback Feature Preferences</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <canvas id="callbackChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('callbackChart').getContext('2d');
+        var callbackChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Keypad', 'Audio'],
+                datasets: [{
+                    label: 'Number of Preferences',
+                    data: [{{ callbacks['send_dtmf'] }}, {{ callbacks['send_audio_words'] }}],
+            backgroundColor: [
+                'rgba(0, 0, 139, 0.7)', // Dark blue color for the first bar
+                'rgba(0, 0, 139, 0.7)'  // Dark blue color for the second bar
+            ],
+            borderColor: [
+                'rgba(0, 0, 139, 1)', // Dark blue border for the first bar
+                'rgba(0, 0, 139, 1)'  // Dark blue border for the second bar
+            ],
+            borderWidth: 1
+        }]
+            },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                        title: {
+                        display: true,
+                            text: 'Number of Preferences',
+                                font: {
+                            weight: 'bold',
+                                size: 16 // Increase font size for vertical axis title
+                        }
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                            text: 'Callback Type',
+                                font: {
+                            weight: 'bold',
+                                size: 16 // Increase font size for horizontal axis title
+                        }
+                    }
+                }
+            }
+        }
+        });
+    </script>
+</body>
+
+</html>

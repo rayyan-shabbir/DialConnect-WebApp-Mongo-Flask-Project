@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DialConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_connect.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='Images/logo.png') }}" alt="DialConnect">
+            <span class="logo-desc" style="font-size: 20px; margin-left: 0px;">DialConnect</span>
+        </div>
+        <a href="{{ url_for('user_home') }}">
+            <img src="{{ url_for('static', filename='Images/home-icon.png') }}" alt="Home Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Home</span>
+        </a>
+        <a href="{{ url_for('user_connect') }}">
+            <img src="{{ url_for('static', filename='Images/form-icon.png') }}" alt="Form Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Add Dial
+                Plan</span>
+        </a>
+        <a href="{{ url_for('user_table') }}">
+            <img src="{{ url_for('static', filename='Images/insurance-icon.png') }}" alt="Insurance Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Insurance
+                Companies</span>
+        </a>
+        <a href="{{ url_for('logout') }}">
+            <img src="{{ url_for('static', filename='Images/log-out.png') }}" alt="Logout Icon">
+            <span class="sidebar-text" style="font-size: 16px; margin-top: 10px; margin-left: 27px;">Logout</span>
+        </a>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content" style="margin-left: 145px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-11">
+                    <h3 class="form-title">Let's <span style="color: #d92c19;">Dial Connect</span></h3>
+                    <form id="insurance-form" method="POST" action="{{ url_for('user_connect') }}">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control insurance-input" id="insurance-company"
+                                    name="insurance_company" placeholder="Enter Insurance Company Name" required>
+                            </div>
+                        </div>
+
+                        <div id="dynamic-fields"></div>
+
+                        <div id="add-info-container">
+                            <div id="add-info">
+                                <span>Add more information</span>
+                                <div class="add-icon" onclick="addField()">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="submit-btn-container">
+                            <button type="submit" class="btn btn-danger submit-btn mt-3"
+                                style="background-color:#0f0264;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        let fieldCounter = 0;
+
+        function addField() {
+            fieldCounter++;
+
+            const fieldOptions = `
+        <option value="PolicyNum">Policy Number</option>
+        <option value="NPI">NPI</option>
+        <option value="DOB">Date of Birth</option>
+        <option value="DOS">Date of Service</option>
+        <option value="Tax">Tax</option>
+        <option value="other">Other</option>
+    `;
+
+            const newField = `
+        <div class="row mb-3" id="field-group-${fieldCounter}">
+            <div class="col-md-3">
+                <label for="field-${fieldCounter}" class="form-label">Select Field</label>
+                <div class="input-group">
+                    <select class="form-select" id="field-${fieldCounter}" name="field_${fieldCounter}" required onchange="handleFieldChange(${fieldCounter})">
+                        ${fieldOptions}
+                    </select>
+                    <input type="text" class="form-control inp" id="custom_field-${fieldCounter}" name="custom_field_${fieldCounter}" placeholder="Enter custom field name" style="display: none;">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="sentence-${fieldCounter}" class="form-label">Sentence</label>
+                <input type="text" class="form-control" id="sentence-${fieldCounter}" name="sentence_${fieldCounter}" required placeholder="Enter Sentence">
+            </div>
+            <div class="col-md-3">
+                <label for="action-${fieldCounter}" class="form-label">Action</label>
+                <input type="text" class="form-control" id="action-${fieldCounter}" name="action_${fieldCounter}" placeholder="Enter Action" readonly required>
+            </div>
+            <div class="col-md-3">
+                <label for="callback-${fieldCounter}" class="form-label">Callback</label>
+                <div class="input-group">
+                    <select class="form-select" id="callback-${fieldCounter}" name="callback_${fieldCounter}" required>
+                        <option value="" selected disabled>Select</option>
+                        <option value="Audio">Audio</option>
+                        <option value="Keypad">Keypad</option>
+                    </select>
+                    <button type="button" class="btn btn-danger btn-sm ms-2 remove" onclick="removeField(${fieldCounter})">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+            document.getElementById('dynamic-fields').insertAdjacentHTML('beforeend', newField);
+        }
+
+
+        function handleFieldChange(counter) {
+            const selectedField = document.getElementById(`field-${counter}`).value;
+            const actionField = document.getElementById(`action-${counter}`);
+            const customFieldInput = document.getElementById(`custom_field-${counter}`);
+            const inputGroup = document.querySelector(`#field-group-${counter} .input-group`);
+
+            if (selectedField === 'other') {
+                // Make the action field editable and remove readonly attribute
+                actionField.readOnly = false;
+                actionField.value = ''; // Clear the field if it had any value
+                actionField.classList.remove('readonly-field');
+                actionField.classList.add('editable-field');
+
+                // Remove the existing dropdown and replace with custom input field
+                inputGroup.innerHTML = `
+            <input type="text" class="form-control" id="custom_field-${counter}" name="custom_field_${counter}" placeholder="Enter custom field name" required>
+        `;
+
+                // Set focus on the new custom input field
+                document.getElementById(`custom_field-${counter}`).focus();
+            } else {
+                // Revert the action field to readonly and clear its value
+                actionField.readOnly = true;
+                actionField.value = ''; // Clear the action field
+                actionField.classList.remove('editable-field');
+                actionField.classList.add('readonly-field');
+
+                // Revert to original dropdown if 'Other' is not selected
+                inputGroup.innerHTML = `
+            <select class="form-select" id="field-${counter}" name="field_${counter}" required onchange="handleFieldChange(${counter})">
+                <option value="PolicyNum" ${selectedField === 'PolicyNum' ? 'selected' : ''}>Policy Number</option>
+                <option value="NPI" ${selectedField === 'NPI' ? 'selected' : ''}>NPI</option>
+                <option value="DOB" ${selectedField === 'DOB' ? 'selected' : ''}>Date of Birth</option>
+                <option value="DOS" ${selectedField === 'DOS' ? 'selected' : ''}>Date of Service</option>
+                <option value="Tax" ${selectedField === 'Tax' ? 'selected' : ''}>Tax</option>
+                <option value="other" ${selectedField === 'other' ? 'selected' : ''}>Other</option>
+            </select>
+        `;
+            }
+        }
+
+        function removeField(counter) {
+            const fieldGroup = document.getElementById(`field-group-${counter}`);
+            if (fieldGroup) {
+                fieldGroup.remove();
+            }
+        }
+
+
+        function showSuccessAlert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.classList.add('custom-alert', 'alert', 'alert-success');
+            alertBox.innerText = message;
+
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000);
+        }
+
+        function showErrorAlert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.classList.add('custom-alert', 'alert', 'alert-danger');
+            alertBox.innerText = message;
+
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000);
+        }
+
+        // Handle form submission and show success or error alert
+        document.getElementById('insurance-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Perform the form submission via Ajax
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showSuccessAlert('Dial Plan Submit successful!');
+                        setTimeout(() => {
+                            window.location.href = '{{ url_for("user_connect") }}';
+                        }, 1000);
+                    } else {
+                        showErrorAlert(data.error || 'Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showErrorAlert('An unexpected error occurred.');
+                });
+        });
+    </script>
+</body>
+
+</html>
